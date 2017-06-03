@@ -7,4 +7,8 @@
     <string name="unavail">Sensor is unavailable</string>
     <string name="nextButton">Next</string>
     <string name="prevButton">Previous</string>
+    <string name="x">X: </string>
+    <string name="y">Y: </string>
+    <string name="z">Z: </string>
+    <string name="zero">0.0</string>
 </resources>

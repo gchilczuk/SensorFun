@@ -9,65 +9,106 @@
     tools:showIn="@layout/activity_main">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:textSize="30sp"
         android:id="@+id/availabilityTV"
-        />
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/headerTV"
-        android:text="@string/values_decsription"
-        android:textSize="30sp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/availabilityTV"
-        android:layout_margin="10dp"/>
+        android:textSize="30sp" />
 
     <TextView
+        android:id="@+id/headerTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/availabilityTV"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/values_decsription"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/X"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headerTV"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:text="@string/x"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/Y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/X"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:text="@string/y"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/Z"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Y"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:text="@string/z"
+        android:textSize="30sp" />
+
+    <TextView
         android:id="@+id/valueXTV"
-        android:textSize="30sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/headerTV"/>
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/headerTV"
+        android:layout_toEndOf="@+id/X"
+        android:layout_toRightOf="@+id/X"
+        android:textSize="30sp" />
+
+    <TextView
         android:id="@+id/valueYTV"
-        android:textSize="30sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/valueXTV"/>
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/valueXTV"
+        android:layout_toEndOf="@+id/Y"
+        android:layout_toRightOf="@+id/Y"
+        android:textSize="30sp" />
+
+    <TextView
         android:id="@+id/valueZTV"
-        android:textSize="30sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/valueYTV"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/valueYTV"
+        android:layout_toEndOf="@+id/Z"
+        android:layout_toRightOf="@+id/Z"
+        android:textSize="30sp" />
 
     <Button
+        android:id="@+id/nextB"
         android:layout_width="112.7dp"
         android:layout_height="70dp"
-        android:id="@+id/nextB"
-        android:text="@string/nextButton"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:text="@string/nextButton" />
 
     <Button
+        android:id="@+id/prevB"
         android:layout_width="112.7dp"
         android:layout_height="70dp"
-        android:id="@+id/prevB"
-        android:text="@string/prevButton"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_margin="10dp"/>
-
+        android:layout_alignParentStart="true"
+        android:layout_margin="10dp"
+        android:text="@string/prevButton" />
 
 
 </RelativeLayout>

@@ -14,6 +14,8 @@ import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import java.lang.Math.abs
+import java.nio.channels.FileLock
 
 class MainActivity : AppCompatActivity(){
     var mSensorManager : SensorManager? = null
@@ -21,6 +23,7 @@ class MainActivity : AppCompatActivity(){
     var sensorList : List<Sensor>? = null
     var currentSensor = 0
     val sensorEventListenersList : MutableList<SensorEventListener> = mutableListOf()
+    var accuracy = 0.2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,22 +42,16 @@ class MainActivity : AppCompatActivity(){
         if (sensor != null) {
             availabilityTV.text = sensor?.name
             availabilityTV.setTextColor(Color.GREEN)
-            headerTV.visibility = View.VISIBLE
-            valueXTV.visibility = View.VISIBLE
-            valueYTV.visibility = View.VISIBLE
-            valueZTV.visibility = View.VISIBLE
         } else {
             availabilityTV.text = getString(R.string.unavail)
             availabilityTV.setTextColor(Color.RED)
-            headerTV.visibility = View.INVISIBLE
-            valueXTV.visibility = View.INVISIBLE
-            valueYTV.visibility = View.INVISIBLE
-            valueZTV.visibility = View.INVISIBLE
         }
+        setValuesTVToZero()
         var sensorid = 0
         while(sensorid < sensorList?.size as Int){
             sensorEventListenersList.add(MySensorEventListener(sensorid))
-            mSensorManager?.registerListener(sensorEventListenersList.get(sensorid), sensorList?.get(sensorid), SensorManager.SENSOR_DELAY_NORMAL)
+            mSensorManager?.registerListener(sensorEventListenersList.get(sensorid),
+                    sensorList?.get(sensorid), SensorManager.SENSOR_DELAY_NORMAL)
             sensorid ++
         }
         currentSensor = 0
@@ -64,33 +61,12 @@ class MainActivity : AppCompatActivity(){
         if (sensorList != null){
             val len : Int = sensorList?.size as Int
             if (currentSensor >= len-1 ){
-                nextB.isActivated = false
                 currentSensor = len-1
             } else {
                 currentSensor ++
                 sensor = sensorList?.get(currentSensor)
-                toast(sensor?.name as CharSequence)
                 availabilityTV.text = sensor?.name
-                if (currentSensor == len-1 ){
-                    nextB.isActivated = false
-                }
-            }
-        }
-    }
-
-    inner class MySensorEventListener(val number : Int) : SensorEventListener {
-        override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
-            // Nothing
-        }
-
-        override fun onSensorChanged(event: SensorEvent?) {
-            if(currentSensor == number) {
-                val xtv = "X: " + event?.values?.get(0)
-                val ytv = "Y: " + event?.values?.get(1)
-                val ztv = "Z: " + event?.values?.get(2)
-                valueXTV.text = xtv
-                valueYTV.text = ytv
-                valueZTV.text = ztv
+                setValuesTVToZero()
             }
         }
     }
@@ -98,18 +74,20 @@ class MainActivity : AppCompatActivity(){
     fun prevSensor(){
         if (sensorList != null){
             if (currentSensor <= 0 ){
-                nextB.isActivated = false
                 currentSensor = 0
             } else {
                 currentSensor --
                 sensor = sensorList?.get(currentSensor)
-                toast(sensor?.name as CharSequence)
                 availabilityTV.text = sensor?.name
-                if (currentSensor == 0 ){
-                    nextB.isActivated = false
-                }
+                setValuesTVToZero()
             }
         }
+    }
+
+    fun setValuesTVToZero(){
+        valueXTV.text = getString(R.string.zero)
+        valueYTV.text = getString(R.string.zero)
+        valueZTV.text = getString(R.string.zero)
     }
 
     override fun onPause() {
@@ -135,6 +113,32 @@ class MainActivity : AppCompatActivity(){
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    inner class MySensorEventListener(val number : Int) : SensorEventListener {
+        var prevX = 0f
+        var prevY = 0f
+        var prevZ = 0f
+
+        override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+        }
+
+        override fun onSensorChanged(event: SensorEvent?) {
+            if(currentSensor == number) {
+                val currX = event?.values?.get(0) as Float
+                val currY = event.values?.get(1) as Float
+                val currZ = event.values?.get(2) as Float
+                if (abs(prevX - currX) > accuracy){
+                    valueXTV.text = currX.toString()
+                }
+                if (abs(prevY - currY) > accuracy){
+                    valueYTV.text = currY.toString()
+                }
+                if (abs(prevZ - currZ) > accuracy){
+                    valueZTV.text = currZ.toString()
+                }
+            }
+        }
     }
 }
 
