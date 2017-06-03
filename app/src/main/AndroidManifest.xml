@@ -19,6 +19,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SensorsReview"
+            android:label="@string/title_activity_sensors_review"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pl.chilczuk.grzegorz.sensorfun.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".DiceActivity"
+            android:label="@string/title_activity_dice"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pl.chilczuk.grzegorz.sensorfun.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

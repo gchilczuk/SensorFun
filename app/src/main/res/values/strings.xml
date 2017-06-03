@@ -7,8 +7,12 @@
     <string name="unavail">Sensor is unavailable</string>
     <string name="nextButton">Next</string>
     <string name="prevButton">Previous</string>
-    <string name="x">X: </string>
-    <string name="y">Y: </string>
-    <string name="z">Z: </string>
+    <string name="x">X:</string>
+    <string name="y">Y:</string>
+    <string name="z">Z:</string>
     <string name="zero">0.0</string>
+    <string name="title_activity_sensors_review">Sensors Review</string>
+    <string name="MainSensorOverviewButton">Sensors overview</string>
+    <string name="title_activity_dice">Dice</string>
+    <string name="MainDiceButton">Dice</string>
 </resources>
