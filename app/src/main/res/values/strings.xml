@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Sensor Fun</string>
+    <string name="action_settings">Settings</string>
+    <string name="values_decsription">Sensor values</string>
+    <string name="gyro_is">Gyroscope is</string>
+    <string name="avail">available</string>
+    <string name="unavail">unavailable</string>
+    <string name="nextButton">Next</string>
+    <string name="prevButton">Previous</string>
+</resources>
