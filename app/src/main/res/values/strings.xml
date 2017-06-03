@@ -4,7 +4,7 @@
     <string name="values_decsription">Sensor values</string>
     <string name="gyro_is">Gyroscope is</string>
     <string name="avail">available</string>
-    <string name="unavail">unavailable</string>
+    <string name="unavail">Sensor is unavailable</string>
     <string name="nextButton">Next</string>
     <string name="prevButton">Previous</string>
 </resources>
