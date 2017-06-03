@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">Sensor Fun</string>
+    <string name="title_activity_sensors_review">Sensors Review</string>
+    <string name="title_activity_dice">Dice</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Menu -->
     <string name="action_settings">Settings</string>
+
+    <!-- Main Activity -->
+    <string name="MainSensorOverviewButton">Sensors overview</string>
+    <string name="MainDiceButton">Dice</string>
+    <string name="MainSettingsButton">Settings</string>
+
+    <!-- Sensor Overview Activity -->
     <string name="values_decsription">Sensor values</string>
     <string name="gyro_is">Gyroscope is</string>
     <string name="avail">available</string>
@@ -11,8 +23,9 @@
     <string name="y">Y:</string>
     <string name="z">Z:</string>
     <string name="zero">0.0</string>
-    <string name="title_activity_sensors_review">Sensors Review</string>
-    <string name="MainSensorOverviewButton">Sensors overview</string>
-    <string name="title_activity_dice">Dice</string>
-    <string name="MainDiceButton">Dice</string>
+
+    <!-- Dice Activity -->
+
+    <!-- Settings Activity -->
+
 </resources>

@@ -2,6 +2,7 @@ package pl.chilczuk.grzegorz.sensorfun
 
 import android.content.Context
 import android.content.Intent
+import android.media.audiofx.BassBoost
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
@@ -27,6 +28,11 @@ class MainActivity : AppCompatActivity(){
             val intent = Intent(applicationContext, DiceActivity::class.java)
             startActivity(intent)
         }
+
+        StartSettingsB.setOnClickListener {
+            val intent = Intent(applicationContext, SettingsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -46,6 +52,7 @@ class MainActivity : AppCompatActivity(){
 
 object SettingsObject{
     var accurancy = 0f
+    var SHAKE_THRESHOLD = 800
 }
 
 fun Context.toast(message: CharSequence) = Toast.makeText(this, message, Toast.LENGTH_SHORT).show()

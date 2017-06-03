@@ -28,10 +28,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pl.chilczuk.grzegorz.sensorfun.MainActivity" />
         </activity>
-
         <activity
             android:name=".DiceActivity"
             android:label="@string/title_activity_dice"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pl.chilczuk.grzegorz.sensorfun.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

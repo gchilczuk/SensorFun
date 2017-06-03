@@ -34,4 +34,17 @@
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@+id/StartSensorOverviewB" />
 
+    <Button
+        android:layout_width="257.6dp"
+        android:layout_height="80dp"
+        android:id="@+id/StartSettingsB"
+        android:text="@string/MainSettingsButton"
+        android:textSize="20sp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/StartDiceB" />
+
 </android.support.constraint.ConstraintLayout>
