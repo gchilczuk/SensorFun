@@ -1,11 +1,14 @@
 <resources>
     <string name="app_name">Sensor Fun</string>
-    <string name="title_activity_sensors_review">Sensors Review</string>
+    <string name="title_activity_sensors_review">Sensors</string>
     <string name="title_activity_dice">Dice</string>
     <string name="title_activity_settings">Settings</string>
 
     <!-- Menu -->
     <string name="action_settings">Settings</string>
+    <string name="action_dice">Dice</string>
+    <string name="action_sensors">Sensors overview</string>
+    <string name="action_about">More info</string>
 
     <!-- Main Activity -->
     <string name="MainSensorOverviewButton">Sensors overview</string>

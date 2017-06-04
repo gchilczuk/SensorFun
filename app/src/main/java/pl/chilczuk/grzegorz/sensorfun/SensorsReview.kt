@@ -1,6 +1,7 @@
 package pl.chilczuk.grzegorz.sensorfun
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -9,6 +10,8 @@ import android.hardware.SensorManager
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.view.Menu
+import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_sensors_review.*
 import kotlinx.android.synthetic.main.content_sensors_review.*
 import java.lang.Math.abs
@@ -132,5 +135,24 @@ class SensorsReview : AppCompatActivity() {
             prevY = 0f
             prevZ = 0f
         }
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_sensors, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if (id == R.id.action_settings) {
+            val intent = Intent(applicationContext, SettingsActivity::class.java)
+            startActivity(intent)
+            return true
+        } else if (id == R.id.action_dice){
+            val intent = Intent(applicationContext, DiceActivity::class.java)
+            startActivity(intent)
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 }

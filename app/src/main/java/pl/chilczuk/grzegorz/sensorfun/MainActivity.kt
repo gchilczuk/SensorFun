@@ -43,6 +43,16 @@ class MainActivity : AppCompatActivity(){
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
         if (id == R.id.action_settings) {
+            val intent = Intent(applicationContext, SettingsActivity::class.java)
+            startActivity(intent)
+            return true
+        } else if (id == R.id.action_dice){
+            val intent = Intent(applicationContext, DiceActivity::class.java)
+            startActivity(intent)
+            return true
+        } else if (id == R.id.action_sensor){
+            val intent = Intent(applicationContext, SensorsReview::class.java)
+            startActivity(intent)
             return true
         }
 

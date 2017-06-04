@@ -1,6 +1,7 @@
 package pl.chilczuk.grzegorz.sensorfun
 
 import android.content.Context
+import android.content.Intent
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -10,6 +11,8 @@ import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.content_dice.*
@@ -51,6 +54,26 @@ class DiceActivity : AppCompatActivity(), OnShakeListener {
     override fun onShake(){
         diceValue = randomGenerator.nextInt(6) + 1
         diceTV.text = diceValue.toString()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_dice, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if (id == R.id.action_settings) {
+            val intent = Intent(applicationContext, SettingsActivity::class.java)
+            startActivity(intent)
+            return true
+        } else if (id == R.id.action_sensor){
+            val intent = Intent(applicationContext, SensorsReview::class.java)
+            startActivity(intent)
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
 }

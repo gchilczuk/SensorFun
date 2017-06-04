@@ -22,6 +22,4 @@
 
     <include layout="@layout/content_dice" />
 
-
-
 </android.support.design.widget.CoordinatorLayout>

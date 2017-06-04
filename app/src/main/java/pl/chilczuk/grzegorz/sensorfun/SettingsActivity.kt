@@ -1,11 +1,11 @@
 package pl.chilczuk.grzegorz.sensorfun
 
+import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.view.View
+import android.view.Menu
+import android.view.MenuItem
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -16,6 +16,26 @@ class SettingsActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_settings, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if (id == R.id.action_dice){
+            val intent = Intent(applicationContext, DiceActivity::class.java)
+            startActivity(intent)
+            return true
+        } else if (id == R.id.action_sensor){
+            val intent = Intent(applicationContext, SensorsReview::class.java)
+            startActivity(intent)
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
 }

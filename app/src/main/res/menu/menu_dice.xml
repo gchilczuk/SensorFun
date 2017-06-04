@@ -10,13 +10,6 @@
         android:icon="@drawable/settings"/>
 
     <item
-        android:id="@+id/action_dice"
-        android:orderInCategory="100"
-        android:title="@string/action_dice"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/dice"/>
-
-    <item
         android:id="@+id/action_sensor"
         android:orderInCategory="100"
         android:title="@string/action_sensors"

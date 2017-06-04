@@ -2,12 +2,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="pl.chilczuk.grzegorz.sensorfun.MainActivity">
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="always"
-        android:icon="@drawable/settings"/>
 
     <item
         android:id="@+id/action_dice"
