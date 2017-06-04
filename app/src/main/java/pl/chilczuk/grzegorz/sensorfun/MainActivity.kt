@@ -71,10 +71,6 @@ class MainActivity : AppCompatActivity(){
     }
 }
 
-object SettingsObject{
-    var accurancy = 0f
-    var SHAKE_THRESHOLD = 800
-    var dice = 6;
-}
+
 
 fun Context.toast(message: CharSequence) = Toast.makeText(this, message, Toast.LENGTH_SHORT).show()

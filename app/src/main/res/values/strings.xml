@@ -32,7 +32,7 @@
 
 
     <!-- Dice Activity -->
-    <string name="prompt">Shake to roll a dice</string>
+    <string name="dice_prompt">Shake to roll a dice</string>
     <string name="spinner_description">Choose dice:</string>
     <string-array name="dice_array">
         <item>k4</item>
@@ -44,9 +44,18 @@
         <item>k100</item>
     </string-array>
 
-
-
     <!-- Settings Activity -->
+    <string name="dice_type_spinner_description">Type:</string>
+    <string name="dice_sensitivity_spinner_description">Sensitivity:</string>
+    <string-array name="dice_sensitivity">
+        <item>sensitive</item>
+        <item>normal</item>
+        <item>insensitive</item>
+    </string-array>
+
+    <string name="dice_segment">Dice</string>
+    <string name="crypto_segment">Crypto</string>
+
 
     <!-- About Activity -->
     <string name="large_text">

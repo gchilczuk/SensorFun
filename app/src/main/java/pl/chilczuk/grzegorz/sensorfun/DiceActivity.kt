@@ -7,23 +7,16 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.AdapterView
-import android.widget.Toast
+import android.widget.*
 import kotlinx.android.synthetic.main.content_dice.*
 import kotlinx.android.synthetic.main.content_sensors_review.*
 import java.lang.Thread.sleep
 import java.util.Random
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-
-
 
 
 class DiceActivity : AppCompatActivity(), OnShakeListener {
@@ -32,7 +25,6 @@ class DiceActivity : AppCompatActivity(), OnShakeListener {
     val sensorEventListener = MySensorEventListener()
     var diceValue = 0
     val randomGenerator = Random()
-    var isOnShake = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +33,7 @@ class DiceActivity : AppCompatActivity(), OnShakeListener {
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        diceTV.text = getString(R.string.prompt)
+        toast(getString(R.string.dice_prompt))
         sensorEventListener.onShakeListener = this
 
         prepareSpinner()
@@ -54,21 +46,15 @@ class DiceActivity : AppCompatActivity(), OnShakeListener {
         dice_spinner.adapter = adapter
         dice_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                when(id){
-                    0L -> SettingsObject.dice = 4
-                    1L -> SettingsObject.dice = 6
-                    2L -> SettingsObject.dice = 8
-                    3L -> SettingsObject.dice = 10
-                    4L -> SettingsObject.dice = 12
-                    5L -> SettingsObject.dice = 20
-                    6L -> SettingsObject.dice = 100
-                }
+                SettingsObject.diceType = id
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 TODO("onNothingSelected is not implemented") //To change body of created functions use File | Settings | File Templates.
             }
         }
+
+        dice_spinner.setSelection(1)
     }
 
     override fun onResume() {
@@ -84,7 +70,7 @@ class DiceActivity : AppCompatActivity(), OnShakeListener {
     }
 
     override fun onShake(){
-        diceValue = randomGenerator.nextInt(SettingsObject.dice) + 1
+        diceValue = randomGenerator.nextInt(SettingsObject.diceMaxValue) + 1
         diceTV.text = diceValue.toString()
     }
 
