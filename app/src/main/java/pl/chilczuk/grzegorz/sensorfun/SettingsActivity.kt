@@ -9,32 +9,31 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import kotlinx.android.synthetic.main.content_dice.*
 import kotlinx.android.synthetic.main.content_settings.*
 
 object SettingsObject{
     var accurancy = 0f
     var SHAKE_THRESHOLD = 1000
     var diceMaxValue = 6;
-    var diceType = 1L
+    var diceType = 1
         set(value) {
             when(value){
-                0L -> diceMaxValue = 4
-                1L -> diceMaxValue = 6
-                2L -> diceMaxValue = 8
-                3L -> diceMaxValue = 10
-                4L -> diceMaxValue = 12
-                5L -> diceMaxValue = 20
-                6L -> diceMaxValue = 100
+                0 -> diceMaxValue = 4
+                1 -> diceMaxValue = 6
+                2 -> diceMaxValue = 8
+                3 -> diceMaxValue = 10
+                4 -> diceMaxValue = 12
+                5 -> diceMaxValue = 20
+                6 -> diceMaxValue = 100
             }
             field = value
         }
-    var sensiticity = 1L
+    var sensitivity = 1
     set(value) {
         when(value){
-            0L -> SHAKE_THRESHOLD = 300
-            1L -> SHAKE_THRESHOLD = 1000
-            2L -> SHAKE_THRESHOLD = 3000
+            0 -> SHAKE_THRESHOLD = 300
+            1 -> SHAKE_THRESHOLD = 1000
+            2 -> SHAKE_THRESHOLD = 3000
         }
         field = value
     }
@@ -60,14 +59,14 @@ class SettingsActivity : AppCompatActivity() {
         dice_type_spinner.adapter = adapter
         dice_type_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                SettingsObject.diceType = id
+                SettingsObject.diceType = position
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 TODO("onNothingSelected is not implemented") //To change body of created functions use File | Settings | File Templates.
             }
         }
-        dice_type_spinner.setSelection(1)
+        dice_type_spinner.setSelection(SettingsObject.diceType)
 
     }
 
@@ -77,14 +76,14 @@ class SettingsActivity : AppCompatActivity() {
         dice_sensitivity_spinner.adapter = adapter
         dice_sensitivity_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                SettingsObject.sensiticity = id
+                SettingsObject.sensitivity = position
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 TODO("onNothingSelected is not implemented") //To change body of created functions use File | Settings | File Templates.
             }
         }
-        dice_sensitivity_spinner.setSelection(1)
+        dice_sensitivity_spinner.setSelection(SettingsObject.sensitivity)
     }
 
 

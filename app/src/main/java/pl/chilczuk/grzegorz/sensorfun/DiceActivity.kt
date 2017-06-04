@@ -46,7 +46,7 @@ class DiceActivity : AppCompatActivity(), OnShakeListener {
         dice_spinner.adapter = adapter
         dice_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                SettingsObject.diceType = id
+                SettingsObject.diceType = position
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -54,7 +54,7 @@ class DiceActivity : AppCompatActivity(), OnShakeListener {
             }
         }
 
-        dice_spinner.setSelection(1)
+        dice_spinner.setSelection(SettingsObject.diceType)
     }
 
     override fun onResume() {
