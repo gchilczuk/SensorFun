@@ -32,6 +32,19 @@
 
 
     <!-- Dice Activity -->
+    <string name="prompt">Shake to roll a dice</string>
+    <string name="spinner_description">Choose dice:</string>
+    <string-array name="dice_array">
+        <item>k4</item>
+        <item>k6</item>
+        <item>k8</item>
+        <item>k10</item>
+        <item>k12</item>
+        <item>k20</item>
+        <item>k100</item>
+    </string-array>
+
+
 
     <!-- Settings Activity -->
 
