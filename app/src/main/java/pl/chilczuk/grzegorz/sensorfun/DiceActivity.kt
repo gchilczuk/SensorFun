@@ -71,6 +71,12 @@ class DiceActivity : AppCompatActivity(), OnShakeListener {
             val intent = Intent(applicationContext, SensorsReview::class.java)
             startActivity(intent)
             return true
+        } else if (id == R.id.action_about){
+            val intent = Intent(applicationContext, AboutActivity::class.java)
+            startActivity(intent)
+        } else if (id == R.id.action_crypto){
+            val intent = Intent(applicationContext, CryptoActivity::class.java)
+            startActivity(intent)
         }
 
         return super.onOptionsItemSelected(item)

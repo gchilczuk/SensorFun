@@ -1,47 +1,33 @@
 package pl.chilczuk.grzegorz.sensorfun
 
-import android.content.Context
 import android.content.Intent
-import android.media.audiofx.BassBoost
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
-import kotlinx.android.synthetic.main.content_main.*
+import android.view.View
 
-class MainActivity : AppCompatActivity(){
+class AboutActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_about)
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
 
-        StartSensorOverviewB.setOnClickListener {
-            val intent = Intent(applicationContext, SensorsReview::class.java)
-            startActivity(intent)
+        val fab = findViewById(R.id.fab) as FloatingActionButton
+        fab.setOnClickListener { view ->
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
         }
-
-        StartDiceB.setOnClickListener {
-            val intent = Intent(applicationContext, DiceActivity::class.java)
-            startActivity(intent)
-        }
-
-        StartSettingsB.setOnClickListener {
-            val intent = Intent(applicationContext, SettingsActivity::class.java)
-            startActivity(intent)
-        }
-
-        StartCryptoB.setOnClickListener {
-            val intent = Intent(applicationContext, CryptoActivity::class.java)
-            startActivity(intent)
-        }
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
+        menuInflater.inflate(R.menu.menu_about, menu)
         return true
     }
 
@@ -59,9 +45,6 @@ class MainActivity : AppCompatActivity(){
             val intent = Intent(applicationContext, SensorsReview::class.java)
             startActivity(intent)
             return true
-        } else if (id == R.id.action_about){
-            val intent = Intent(applicationContext, AboutActivity::class.java)
-            startActivity(intent)
         } else if (id == R.id.action_crypto){
             val intent = Intent(applicationContext, CryptoActivity::class.java)
             startActivity(intent)
@@ -70,10 +53,3 @@ class MainActivity : AppCompatActivity(){
         return super.onOptionsItemSelected(item)
     }
 }
-
-object SettingsObject{
-    var accurancy = 0f
-    var SHAKE_THRESHOLD = 800
-}
-
-fun Context.toast(message: CharSequence) = Toast.makeText(this, message, Toast.LENGTH_SHORT).show()

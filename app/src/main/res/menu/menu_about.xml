@@ -1,20 +1,28 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="pl.chilczuk.grzegorz.sensorfun.MainActivity">
+    tools:context="pl.chilczuk.grzegorz.sensorfun.AboutActivity">
+
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_crypto"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/action_crypto"
         app:showAsAction="always"
-        android:icon="@drawable/settings"/>
+        android:icon="@drawable/key"/>
 
     <item
         android:id="@+id/action_dice"
         android:orderInCategory="100"
         android:title="@string/action_dice"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         android:icon="@drawable/dice"/>
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/settings"/>
 
     <item
         android:id="@+id/action_sensor"
@@ -22,5 +30,4 @@
         android:title="@string/action_sensors"
         app:showAsAction="ifRoom"
         android:icon="@drawable/sensor"/>
-
 </menu>

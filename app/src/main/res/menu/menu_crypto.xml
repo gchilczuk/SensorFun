@@ -1,14 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="pl.chilczuk.grzegorz.sensorfun.MainActivity">
-
-    <item
-        android:id="@+id/action_crypto"
-        android:orderInCategory="100"
-        android:title="@string/action_crypto"
-        app:showAsAction="always"
-        android:icon="@drawable/key"/>
+    tools:context="pl.chilczuk.grzegorz.sensorfun.CryptoActivity">
 
     <item
         android:id="@+id/action_dice"

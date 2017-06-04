@@ -42,6 +42,7 @@ class SensorsReview : AppCompatActivity() {
         sensorList = mSensorManager?.getSensorList(Sensor.TYPE_ALL)
         currentSensor = 0
         sensor = sensorList?.get(currentSensor)
+        prevB.isEnabled = false
         if (sensor != null) {
             availabilityTV.text = sensor?.name
             availabilityTV.setTextColor(Color.GREEN)
@@ -49,6 +50,10 @@ class SensorsReview : AppCompatActivity() {
         } else {
             availabilityTV.text = getString(R.string.unavail)
             availabilityTV.setTextColor(Color.RED)
+            nextB.isEnabled = false
+        }
+        if ((sensorList?.size as Int )< 2){
+            nextB.isEnabled = false
         }
         setValuesTVToZero()
     }
@@ -81,6 +86,11 @@ class SensorsReview : AppCompatActivity() {
                 availabilityTV.text = sensor?.name
                 setValuesTVToZero()
             }
+            if (currentSensor == len-1 ){
+                nextB.isEnabled = false
+            } else if (currentSensor == 1){
+                prevB.isEnabled = true
+            }
         }
     }
 
@@ -95,6 +105,11 @@ class SensorsReview : AppCompatActivity() {
                 registerCurrentSensorEventListener()
                 availabilityTV.text = sensor?.name
                 setValuesTVToZero()
+            }
+            if (currentSensor == 0 ){
+                prevB.isEnabled = false
+            } else if (currentSensor == sensorList?.size as Int - 2){
+                nextB.isEnabled = true
             }
         }
     }
@@ -151,6 +166,12 @@ class SensorsReview : AppCompatActivity() {
             val intent = Intent(applicationContext, DiceActivity::class.java)
             startActivity(intent)
             return true
+        } else if (id == R.id.action_about){
+            val intent = Intent(applicationContext, AboutActivity::class.java)
+            startActivity(intent)
+        } else if (id == R.id.action_crypto){
+            val intent = Intent(applicationContext, CryptoActivity::class.java)
+            startActivity(intent)
         }
 
         return super.onOptionsItemSelected(item)
