@@ -17,6 +17,9 @@ import kotlinx.android.synthetic.main.content_dice.*
 import kotlinx.android.synthetic.main.content_sensors_review.*
 import java.lang.Thread.sleep
 import java.util.Random
+import android.os.CountDownTimer
+
+
 
 
 class DiceActivity : AppCompatActivity(), OnShakeListener {
@@ -25,6 +28,8 @@ class DiceActivity : AppCompatActivity(), OnShakeListener {
     val sensorEventListener = MySensorEventListener()
     var diceValue = 0
     val randomGenerator = Random()
+    var shakes = 0L
+    var doneShakes = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +52,8 @@ class DiceActivity : AppCompatActivity(), OnShakeListener {
         dice_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 SettingsObject.diceType = position
+                shakes = 0L
+                doneShakes = 0L
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -70,8 +77,31 @@ class DiceActivity : AppCompatActivity(), OnShakeListener {
     }
 
     override fun onShake(){
+        shakes ++
         diceValue = randomGenerator.nextInt(SettingsObject.diceMaxValue) + 1
         diceTV.text = diceValue.toString()
+        timer(500L+(shakes-doneShakes/2)*100L)
+
+        if (shakes >30L ) {
+            doneShakes %= 10L
+            shakes %= 10L
+        }
+    }
+
+    fun timer(howLong:Long){
+        object : CountDownTimer(howLong, howLong/10L) {
+
+            override fun onTick(millisUntilFinished: Long) {
+                diceValue = randomGenerator.nextInt(SettingsObject.diceMaxValue) + 1
+                diceTV.text = diceValue.toString()
+            }
+
+            override fun onFinish() {
+                doneShakes++
+//                mTextField.setText("done!")
+            }
+        }.start()
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
