@@ -7,7 +7,8 @@
         android:orderInCategory="100"
         android:title="@string/action_crypto"
         app:showAsAction="always"
-        android:icon="@drawable/key"/>
+        android:icon="@mipmap/key"
+        android:enabled="false"/>
 
     <item
         android:id="@+id/action_dice"
@@ -21,13 +22,14 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/settings"/>
+        android:icon="@mipmap/settings"/>
 
     <item
         android:id="@+id/action_about"
         android:orderInCategory="100"
         android:title="@string/action_about"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/plus"/>
+        android:icon="@drawable/plus"
+        android:enabled="false"/>
 
 </menu>

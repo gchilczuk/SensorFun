@@ -8,7 +8,7 @@
         android:orderInCategory="100"
         android:title="@string/action_crypto"
         app:showAsAction="always"
-        android:icon="@drawable/key"/>
+        android:icon="@mipmap/key"/>
 
     <item
         android:id="@+id/action_dice"
@@ -22,12 +22,12 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/settings"/>
+        android:icon="@mipmap/settings"/>
 
     <item
         android:id="@+id/action_sensor"
         android:orderInCategory="100"
         android:title="@string/action_sensors"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/sensor"/>
+        android:icon="@mipmap/sensor"/>
 </menu>
