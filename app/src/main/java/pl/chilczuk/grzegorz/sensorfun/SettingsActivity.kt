@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.content_settings.*
 
 object SettingsObject{
+    val specialPower = 8000
     var accurancy = 0f
     var SHAKE_THRESHOLD = 1000
     var diceMaxValue = 6;
@@ -31,9 +32,10 @@ object SettingsObject{
     var sensitivity = 1
     set(value) {
         when(value){
-            0 -> SHAKE_THRESHOLD = 300
-            1 -> SHAKE_THRESHOLD = 1000
-            2 -> SHAKE_THRESHOLD = 3000
+            0 -> SHAKE_THRESHOLD = 400
+            1 -> SHAKE_THRESHOLD = 2000
+            2 -> SHAKE_THRESHOLD = 4000
+            3 -> SHAKE_THRESHOLD = specialPower
         }
         field = value
     }

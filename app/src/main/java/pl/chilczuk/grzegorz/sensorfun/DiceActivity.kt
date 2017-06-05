@@ -86,6 +86,25 @@ class DiceActivity : AppCompatActivity(), OnShakeListener {
             doneShakes %= 10L
             shakes %= 10L
         }
+
+    }
+
+    override fun tooWeak() {
+        val n = randomGenerator.nextInt(5)
+        when(n){
+            0 -> toast(getString(R.string.tooWeak1))
+            1 -> toast(getString(R.string.tooWeak2))
+            2 -> toast(getString(R.string.tooWeak3))
+            3 -> toast(getString(R.string.tooWeak4))
+            4 -> toast(getString(R.string.tooWeak5))
+            5 -> toast(getString(R.string.tooWeak6))
+        }
+        diceTV.text = "0"
+
+    }
+
+    override fun winner() {
+        toast(getString(R.string.winner))
     }
 
     fun timer(howLong:Long){
@@ -141,6 +160,7 @@ class MySensorEventListener() : SensorEventListener {
     var lastUpdate = System.currentTimeMillis()
     val SHAKE_THRESHOLD = SettingsObject.SHAKE_THRESHOLD
     var onShakeListener : OnShakeListener? = null
+    val specialPower = SettingsObject.specialPower
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) { }
 
@@ -151,12 +171,17 @@ class MySensorEventListener() : SensorEventListener {
         val curTime = System.currentTimeMillis()
         if ((curTime - lastUpdate) > 100) {
             val diffTime =(curTime - lastUpdate)
-            lastUpdate = curTime;
+            lastUpdate = curTime
 
             val speed = Math.abs(currX + currY + currZ - prevX - prevY - prevZ) / diffTime * 10000
 
             if (speed > SHAKE_THRESHOLD) {
                 onShakeListener?.onShake()
+                if (SHAKE_THRESHOLD == specialPower){
+                    onShakeListener?.winner()
+                }
+            } else if (speed > 500 && SHAKE_THRESHOLD == specialPower){
+                onShakeListener?.tooWeak()
             }
             prevX = currX;
             prevY = currY;
@@ -167,6 +192,8 @@ class MySensorEventListener() : SensorEventListener {
 
 interface OnShakeListener {
     fun onShake()
+    fun tooWeak()
+    fun winner()
 }
 
 

@@ -43,6 +43,14 @@
         <item>k20</item>
         <item>k100</item>
     </string-array>
+    <string name="tooWeak1">You need more energy</string>
+    <string name="tooWeak2">Jellyfish!</string>
+    <string name="tooWeak3">You will never win!</string>
+    <string name="tooWeak4">Loser!</string>
+    <string name="tooWeak5">You have no power here!</string>
+    <string name="tooWeak6">Just give up.</string>
+
+    <string name="winner">You are real hardrock!</string>
 
     <!-- Settings Activity -->
     <string name="dice_type_spinner_description">Type:</string>
@@ -51,6 +59,7 @@
         <item>sensitive</item>
         <item>normal</item>
         <item>insensitive</item>
+        <item>don\'t try</item>
     </string-array>
 
     <string name="dice_segment">Dice</string>
